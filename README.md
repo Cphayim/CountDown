@@ -1,8 +1,8 @@
 #CountDown
 
->  此demo来源于[慕课网](www.imooc.com)
-
 ##这是一个Canvas实现的酷炫的倒计时效果
+
+>  此demo来源于[慕课网](www.imooc.com)
 
 ### 效果如图所示
 
