@@ -8,16 +8,16 @@ var MARGIN_LEFT; //第一个数字距离画布的左边距
  * 一小时倒计时效果所用参数
  */
 const endTime = new Date();
-endTime.setHours(endTime.getHours()+1);
+endTime.setHours(endTime.getHours() + 1);
 var curShowTimeSeconds = 0; //当前秒数
 var balls = [];
 const colors = ['#33B5E5', '#0099CC', '#AA66CC', '#9933CC', '#99CC00', '#669900', '#FFBB33', '#FF8800', '#FF4444', '#CC0000'];
 
 WINDOW_WIDTH = document.documentElement.clientWidth;
 WINDOW_HEIGHT = document.documentElement.clientHeight;
-MARGIN_LEFT = WINDOW_WIDTH/10;
-RADIUS = Math.round(WINDOW_WIDTH*4/5/108)-1;
-MARGIN_TOP = WINDOW_HEIGHT/5;
+MARGIN_LEFT = WINDOW_WIDTH / 10;
+RADIUS = Math.round(WINDOW_WIDTH * 4 / 5 / 108) - 1;
+MARGIN_TOP = WINDOW_HEIGHT / 5;
 
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
@@ -93,10 +93,10 @@ function updateBalls() {
 			balls[cnt++] = balls[i];
 		}
 	}
-	while(balls.length>cnt){
+	while (balls.length > cnt) {
 		balls.pop();
 	}
-//	console.log(cnt)
+	//	console.log(cnt)
 }
 
 /**
@@ -134,7 +134,7 @@ function getCurShowTimeSeconds() {
 	var ret = endTime.getTime() - curTime.getTime(); //剩余毫秒数
 	ret = Math.round(ret / 1000); //毫秒->秒
 	return ret >= 0 ? ret : 0;
-	
+
 }
 
 /**
@@ -158,7 +158,7 @@ function render(cxt) {
 	renderDigit(MARGIN_LEFT + 54 * (RADIUS + 1), MARGIN_TOP, parseInt(minutes % 10), cxt);
 	renderDigit(MARGIN_LEFT + 69 * (RADIUS + 1), MARGIN_TOP, 10, cxt);
 	renderDigit(MARGIN_LEFT + 78 * (RADIUS + 1), MARGIN_TOP, parseInt(seconds / 10), cxt);
-	renderDigit(MARGIN_LEFT + 93 * (RADIUS + 1), MARGIN_TOP, parseInt(seconds % 10), cxt);//RADIUS = windowWIDTH*4/5/108-1 
+	renderDigit(MARGIN_LEFT + 93 * (RADIUS + 1), MARGIN_TOP, parseInt(seconds % 10), cxt); //RADIUS = windowWIDTH*4/5/108-1 
 
 	//绘制运动小球
 	for (var i = 0; i < balls.length; i++) {
